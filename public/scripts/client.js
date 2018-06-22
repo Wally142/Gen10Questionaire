@@ -12,34 +12,34 @@ $('#question1Button').click(function(){
     console.log('question 1 answered')
 })
 
-$('#question2Button').click(function () {
+$('#question2NextButton').click(function () {
     $('#question2').hide()
     $('#question3').show()
     console.log('question 2 answered')
 })
 
-$('#question3Button').click(function () {
+$('#question3NextButton').click(function () {
     $('#question3').hide()
     $('#question4').show()
-    console.log('question 3 answered')
+    console.log(' question 3 answered ')
+})
+
+$('#question4PreviousButton').click(function () {
+    $('#question3').show()
+    $('#question4').hide()
+    console.log('Back to question 3')
 })
 
 $('#question3PreviousButton').click(function () {
     $('#question3').hide()
-    $('#question4').show()
-    console.log('question 3 answered')
+    $('#question2').show()
+    console.log('Back to question 2')
 })
 
 $('#question2PreviousButton').click(function () {
-    $('#question3').hide()
-    $('#question4').show()
-    console.log('question 3 answered')
-})
-
-$('#question1PreviousButton').click(function () {
-    $('#question3').hide()
-    $('#question4').show()
-    console.log('question 3 answered')
+    $('#question2').hide()
+    $('#question1').show()
+    console.log('back to question 1')
 })
 
 $('#answers').click(function () {
@@ -66,7 +66,7 @@ $('#answers').click(function () {
     }).always(function (xhr) {
         if (xhr.status >= 200 && xhr.status < 300) {
             console.log('Post in Questionaire Table Successful!');
-            $('#myDiv').append("hello");
+            window.location.href = 'video.html';
            
         } else {
             console.log('Post Attempt Failed');
