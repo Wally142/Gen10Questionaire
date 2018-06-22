@@ -120,17 +120,19 @@
             border-top-left-radius: 10px; border-bottom-left-radius: 10px;border-bottom-right-radius: 1px;
         }
 
-        /* Hover Effects */
-        #my-breadcrumbs ul li a:hover::before {
-            border-color: #5172B8 #5172B8 #5172B8 transparent;
-        }
-        /* Hover Effects */
-        #my-breadcrumbs ul li a:hover::after {
-            border-top: 40px solid transparent;
-            border-bottom: 40px solid transparent;
-            border-left: 40px solid #5172B8;
-        }
-    </style>
+
+    /* Hover Effects */
+    #my-breadcrumbs ul li a:hover::before {
+      border-color: #5172B8 #5172B8 #5172B8 transparent;
+    }
+    /* Hover Effects */
+    #my-breadcrumbs ul li a:hover::after {
+      border-top: 40px solid transparent;
+      border-bottom: 40px solid transparent;
+      border-left: 40px solid #5172B8;
+    }
+
+</style>
 
     <body style="background-color: #F8F8FF">
         <div class="header">
@@ -139,15 +141,46 @@
             </div>
         </div>
 
-        <div class="col-md-12">
-            <div id="my-breadcrumbs">
-                <ul>
-                    <li id="navigationOne"><a href="#">Question 1</a></li>
-                    <li id="navigationTwo"><a href="#">Question 2</a></li>
-                    <li id="navigationThree"><a href="#">Question 3</a></li>
-                    <li id="navigationFour"><a href="#">Question 4</a></li>
-                </ul>
-            </div>
+
+    <div class="col-md-12">
+      <div id="my-breadcrumbs">
+       <ul>
+         <li id="navigationOne"><a id="prog1" href="#">Question 1</a></li>
+         <li id="navigationTwo"><a id="prog2" href="#">Question 2</a></li>
+         <li id="navigationThree"><a id="prog3" href="#">Question 3</a></li>
+         <li id="navigationFour"><a id="prog4" href="#">Question 4</a></li>
+
+       </ul>
+      </div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <div class="form-group">
+        <div class="col-md-8" id="question1">
+            <label for="questionOne">What is your favorite animal?</label>
+            <textarea class="form-control" rows="3" id="questionOne"></textarea>
+
+            <button type="button" class="btn btn-primary btn-lg" id="question1NextButton">Next Question</button>
+        </div>
+        <div class="col-md-8" id="question2">
+            <label for="questionOne"><font>What kind of horses do you like?</font></label>
+            <textarea class="form-control" rows="3" style="border: solid black 2px" id="questionTwo"></textarea>
+            <button type="button" class="btn btn-primary btn-lg" id="question2PreviousButton">Previous Question</button>
+            <button type="button" class="btn btn-primary btn-lg" id="question2NextButton">Next Question</button>
+        </div>
+        <div class="col-md-8" id="question3">
+            <label for="questionOne">What kind of dogs do you know?</label>
+            <textarea class="form-control" rows="3" style="border: solid black 2px" id="questionThree"></textarea>
+            <button type="button" class="btn btn-primary btn-lg" id="question3PreviousButton">Previous Question</button>
+            <button type="button" class="btn btn-primary btn-lg" id="question3NextButton">Next Question</button>
+        </div>
+        <div class="col-md-8" id="question4">
+            <label for="questionOne">How many cats will be on this page?</label>
+            <textarea class="form-control" rows="3" style="border: solid black 2px" id="questionFour"></textarea>
+            <button type="button" class="btn btn-primary btn-lg" id="question4PreviousButton">Previous Question</button>
+            <button type="button" class="btn btn-primary btn-lg" id="answers">Submit Answers</button>
+
         </div>
         <div class="form-group">
             <div class="col-md-8" id="question1">
