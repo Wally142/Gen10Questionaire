@@ -1,144 +1,193 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<style>
-    input[type="text"] {
-        width: 300px;
-        height: 60px;
-    }
-    #question1{
-        font-size: large;
-    }
-    #question2{
-        font-size: large;
-    }
-    #question3{
-        font-size: large;
-    }
-    #question4{
-        font-size: large;
-    }
-    #answers{
-        color:black;
-        background: #d1e0e0;
-        font-weight: bold;
-    }
-    #my-breadcrumbs ul li {
-     list-style:none;
-    }
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+    </head>
+    <style>
+        input{
+            font-size: 20px
+        }
+        #question1{
+            font-size: large;
+        }
+        #question2{
+            font-size: large;
+        }
+        #question3{
+            font-size: large;
+        }
+        #question4{
+            font-size: large;
+        }
+        #answers{
+            border: solid #4169E1 2px;
+            color:black;
+            background: #3CB371;
+            font-weight: bold;
+        }
+        #question1NextButton{
+            border: solid #4169E1 2px;
+            color:black;
+            background: #3CB371;
+            font-weight: bold;
+        }
+        #question2NextButton{
+            border: solid #4169E1 2px;
+            color:black;
+            background: #3CB371;
+            font-weight: bold;        
+        }
+        #question3NextButton{
+            border: solid #4169E1 2px;
+            color:black;
+            background: #3CB371;
+            font-weight: bold;
+        }
+        #question4NextButton{
+            border: solid #4169E1 2px;
+            color:black;
+            background: #3CB371;
+            font-weight: bold;
+        }
+        #question2PreviousButton{
+            border: solid #4169E1 2px;
+            color:black;
+            background: #E9967A;
+            font-weight: bold;        
+        }
+        #question3PreviousButton{
+            border: solid #4169E1 2px;
+            color:black;
+            background: #E9967A;
+            font-weight: bold;        
+        }
+        #question4PreviousButton{
+            border: solid #4169E1 2px;
+            color:black;
+            background: #E9967A;
+            font-weight: bold;
+        }
+        #my-breadcrumbs ul li {
+            list-style:none;
+        }
 
-    #my-breadcrumbs {
-    margin-top: 50px;
-    margin-bottom: 50px;
-    }
+        #my-breadcrumbs {
+            margin-top: 50px;
+            margin-bottom: 50px;
+        }
 
-    #my-breadcrumbs ul li a {
-     display: block;
-     float: left;
-     height: 80px;
-     background: #4060A5;
-     text-align: center;
-     padding: 30px 40px 0 40px;
-     position: relative;
-     margin: 0 45px 0 0;
-     font-family: "Open Sans", Helvetica, Arial, sans-serif;
-     font-size: 20px;
-     text-decoration: none;
-     color: #fff;
-    }
+        #my-breadcrumbs ul li a {
+            display: block;
+            float: left;
+            height: 80px;
+            background: #4060A5;
+            text-align: center;
+            padding: 30px 40px 0 40px;
+            position: relative;
+            margin: 0 45px 0 0;
+            font-family: "Open Sans", Helvetica, Arial, sans-serif;
+            font-size: 20px;
+            text-decoration: none;
+            color: #fff;
+        }
 
-    #my-breadcrumbs ul li a:after {
-      content: "";
-      border-top: 40px solid transparent;
-      border-bottom: 40px solid transparent;
-      border-left: 40px solid #4060A5;
-      position: absolute; right: -40px; top: 0;
-    }
-    #my-breadcrumbs ul li a:before {
-      content: "";
-      position: absolute;
+        #my-breadcrumbs ul li a:after {
+            content: "";
+            border-top: 40px solid transparent;
+            border-bottom: 40px solid transparent;
+            border-left: 40px solid #4060A5;
+            position: absolute; right: -40px; top: 0;
+        }
+        #my-breadcrumbs ul li a:before {
+            content: "";
+            position: absolute;
 
-      margin-top: -30px;
-      border-width: 40px 0 40px 40px;
-      border-style: solid;
-      border-color: #4060A5 #4060A5 #4060A5 transparent;
-      left: -40px;
-    }
-    /* Hide the Before Pseudo Element */
-    #my-breadcrumbs ul li:first-child a:before {
-        display: none; }
+            margin-top: -30px;
+            border-width: 40px 0 40px 40px;
+            border-style: solid;
+            border-color: #4060A5 #4060A5 #4060A5 transparent;
+            left: -40px;
+        }
+        /* Hide the Before Pseudo Element */
+        #my-breadcrumbs ul li:first-child a:before {
+            display: none; }
 
-    /* Add Border Radius */
-    #my-breadcrumbs ul li:first-child a{
-        border-top-left-radius: 10px; border-bottom-left-radius: 10px;border-bottom-right-radius: 1px;
-    }
+        /* Add Border Radius */
+        #my-breadcrumbs ul li:first-child a{
+            border-top-left-radius: 10px; border-bottom-left-radius: 10px;border-bottom-right-radius: 1px;
+        }
 
-    /* Hover Effects */
-    #my-breadcrumbs ul li a:hover::before {
-      border-color: #5172B8 #5172B8 #5172B8 transparent;
-    }
-    /* Hover Effects */
-    #my-breadcrumbs ul li a:hover::after {
-      border-top: 40px solid transparent;
-      border-bottom: 40px solid transparent;
-      border-left: 40px solid #5172B8;
-    }
-</style>
+        /* Hover Effects */
+        #my-breadcrumbs ul li a:hover::before {
+            border-color: #5172B8 #5172B8 #5172B8 transparent;
+        }
+        /* Hover Effects */
+        #my-breadcrumbs ul li a:hover::after {
+            border-top: 40px solid transparent;
+            border-bottom: 40px solid transparent;
+            border-left: 40px solid #5172B8;
+        }
+    </style>
 
-<body style="background-color: blue">
-    <div class="header">
-        <div class="container-fluid" style="background-color: rgb(228,112,30)">
-            <h1>Genesis10</h1>
+    <body style="background-color: #F8F8FF">
+        <div class="header">
+            <div class="container-fluid" style="background-color: rgb(228,112,30)">
+                <h1>Genesis10</h1>
+            </div>
         </div>
-    </div>
 
-    <div class="col-md-12">
-      <div id="my-breadcrumbs">
-       <ul>
-         <li id="navigationOne"><a href="#">Question 1</a></li>
-         <li id="navigationTwo"><a href="#">Question 2</a></li>
-         <li id="navigationThree"><a href="#">Question 3</a></li>
-         <li id="navigationFour"><a href="#">Question 4</a></li>
-
-       </ul>
-      </div>
-    </div>
-    <br>
-    <br>
-    <br>
-    <div class="form-group">
-        <div class="col-md-8" id="question1">
-            <label for="questionOne">What is your favorite animal?</label>
-            <textarea class="form-control" rows="3" id="questionOne"></textarea>
-
-            <button type="button" class="btn btn-primary btn-lg" id="question1Button">Next Question</button>
+        <div class="col-md-12">
+            <div id="my-breadcrumbs">
+                <ul>
+                    <li id="navigationOne"><a href="#">Question 1</a></li>
+                    <li id="navigationTwo"><a href="#">Question 2</a></li>
+                    <li id="navigationThree"><a href="#">Question 3</a></li>
+                    <li id="navigationFour"><a href="#">Question 4</a></li>
+                </ul>
+            </div>
         </div>
-        <div class="col-md-8" id="question2">
-            <label for="questionOne"><font>What kind of horses do you like?</font></label>
-            <textarea class="form-control" rows="3" style="border: solid black 2px" id="questionTwo"></textarea>
-            <button type="button" class="btn btn-primary btn-lg" id="question2PreviousButton">Previous Question</button>
-            <button type="button" class="btn btn-primary btn-lg" id="question2NextButton">Next Question</button>
-        </div>
-        <div class="col-md-8" id="question3">
-            <label for="questionOne">What kind of dogs do you know?</label>
-            <textarea class="form-control" rows="3" style="border: solid black 2px" id="questionThree"></textarea>
-            <button type="button" class="btn btn-primary btn-lg" id="question3PreviousButton">Previous Question</button>
-            <button type="button" class="btn btn-primary btn-lg" id="question3NextButton">Next Question</button>
-        </div>
-        <div class="col-md-8" id="question4">
-            <label for="questionOne">How many cats will be on this page?</label>
-            <textarea class="form-control" rows="3" style="border: solid black 2px" id="questionFour"></textarea>
-            <button type="button" class="btn btn-primary btn-lg" id="question4PreviousButton">Previous Question</button>
-            <button type="button" class="btn btn-primary btn-lg" id="answers">Submit Answers</button>
-        </div>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
-            crossorigin="anonymous">
-        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-        <script src="scripts/client.js"></script>
-</body>
+        <div class="form-group">
+            <div class="col-md-8" id="question1">
+                <br>
+                <br>    
+                <label for="questionOne">What is your favorite animal?</label>
+                <textarea class="form-control" rows="3" id="questionOne"></textarea>
+                <br>
+                <button type="button" class="btn btn-lg" id="question1NextButton">Next Question</button>
+            </div>
+            <div class="col-md-8" id="question2">
+                <br>
+                <br>
+                <label for="questionOne"><font>What kind of horses do you like?</font></label>
+                <textarea class="form-control" rows="3" style="border: solid black 2px" id="questionTwo"></textarea>
+                <br>
+                <button type="button" class="btn  btn-lg" id="question2PreviousButton">Previous Question</button>
+                <button type="button" class="btn  btn-lg" id="question2NextButton">Next Question</button>
+            </div>
+            <div class="col-md-8" id="question3">
+                <br>
+                <br>
+                <label for="questionOne">What kind of dogs do you know?</label>
+                <textarea class="form-control" rows="3" style="border: solid black 2px" id="questionThree"></textarea>
+                <br>
+                <button type="button" class="btn btn-lg" id="question3PreviousButton">Previous Question</button>
+                <button type="button" class="btn btn-lg" id="question3NextButton">Next Question</button>
+            </div>
+            <div class="col-md-8" id="question4">
+                <br>
+                <br>
+                <label for="questionOne">How many cats will be on this page?</label>
+                <textarea class="form-control" rows="3" style="border: solid black 2px" id="questionFour"></textarea>
+                <br>
+                <button type="button" class="btn btn-primary btn-lg" id="question4PreviousButton">Previous Question</button>
+                <button type="button" class="btn btn-primary btn-lg" id="answers">Submit Answers</button>
+            </div>
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+                  crossorigin="anonymous">
+            <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+            <script src="scripts/client.js"></script>
+    </body>
 </html>
