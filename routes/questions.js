@@ -9,8 +9,8 @@ router.post('/', function (req, res) {
             console.log(error);
             res.sendStatus(404);
         } else {
-            const queryString = 'INSERT INTO questionaire (question1, question2, question3, question4) VALUES ($1, $2, $3, $4);';
-            let item = [answer.question1, answer.question2, answer.question3, answer.question4];
+            const queryString = 'INSERT INTO questionaire (firstname, lastname, email, question1, question2, question3, question4) VALUES ($1, $2, $3, $4, $5, $6, $7);';
+            let item = [answer.firstname, answer.lastname, answer.email, answer.question1, answer.question2, answer.question3, answer.question4];
             client.query(queryString, item, function (queryErr, resultObj) {
                 done();
                 if (queryErr) {
