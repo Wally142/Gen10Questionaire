@@ -38,7 +38,7 @@
             border: solid #4169E1 2px;
             color:black;
             background: #3CB371;
-            font-weight: bold;        
+            font-weight: bold;
         }
         #question3NextButton{
             border: solid #4169E1 2px;
@@ -56,13 +56,13 @@
             border: solid #4169E1 2px;
             color:black;
             background: #E9967A;
-            font-weight: bold;        
+            font-weight: bold;
         }
         #question3PreviousButton{
             border: solid #4169E1 2px;
             color:black;
             background: #E9967A;
-            font-weight: bold;        
+            font-weight: bold;
         }
         #question4PreviousButton{
             border: solid #4169E1 2px;
@@ -132,6 +132,19 @@
       border-left: 40px solid #5172B8;
     }
 
+    .press {
+      display: block;
+      padding: 0;
+      margin: 0;
+      width: 100%;
+    }
+
+    .press li {
+      display: inline-block;
+      width: 20%;
+      text-align: center;
+    }
+
 </style>
 
     <body style="background-color: #F8F8FF">
@@ -144,8 +157,8 @@
 
     <div class="col-md-12">
       <div id="my-breadcrumbs">
-       <ul>
-         <li id="navigationOne"><a id="prog1" href="#">Question 1</a></li>
+       <ul class="press">
+         <li id="navigationOne" ><a id="prog1" href="#">Question 1</a></li>
          <li id="navigationTwo"><a id="prog2" href="#">Question 2</a></li>
          <li id="navigationThree"><a id="prog3" href="#">Question 3</a></li>
          <li id="navigationFour"><a id="prog4" href="#">Question 4</a></li>
@@ -182,7 +195,7 @@
             <button type="button" class="btn btn-primary btn-lg" id="answers">Submit Answers</button>
 
         </div>
-       
+
             <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
                   crossorigin="anonymous">
             <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
