@@ -78,7 +78,7 @@ $('#answers').click(function () {
         if (xhr.status >= 200 && xhr.status < 300) {
             console.log('Post in Questionaire Table Successful!');
             window.location.href = 'video.html';
-           
+
         } else {
             console.log('Post Attempt Failed');
         }
