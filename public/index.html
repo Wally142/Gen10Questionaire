@@ -70,104 +70,34 @@
             background: #E9967A;
             font-weight: bold;
         }
-        #my-breadcrumbs ul li {
-            list-style:none;
+        textarea{
+            width: auto;
         }
-
-        #my-breadcrumbs {
-            margin-top: 50px;
-            margin-bottom: 50px;
-        }
-
-        #my-breadcrumbs ul li a {
-            display: block;
-            float: left;
-            height: 80px;
-            background: #4060A5;
-            text-align: center;
-            padding: 30px 40px 0 40px;
-            position: relative;
-            margin: 0 45px 0 0;
-            font-family: "Open Sans", Helvetica, Arial, sans-serif;
-            font-size: 20px;
-            text-decoration: none;
-            color: #fff;
-        }
-
-        #my-breadcrumbs ul li a:after {
-            content: "";
-            border-top: 40px solid transparent;
-            border-bottom: 40px solid transparent;
-            border-left: 40px solid #4060A5;
-            position: absolute; right: -40px; top: 0;
-        }
-        #my-breadcrumbs ul li a:before {
-            content: "";
-            position: absolute;
-
-            margin-top: -30px;
-            border-width: 40px 0 40px 40px;
-            border-style: solid;
-            border-color: #4060A5 #4060A5 #4060A5 transparent;
-            left: -40px;
-        }
-        /* Hide the Before Pseudo Element */
-        #my-breadcrumbs ul li:first-child a:before {
-            display: none; }
-
-        /* Add Border Radius */
-        #my-breadcrumbs ul li:first-child a{
-            border-top-left-radius: 10px; border-bottom-left-radius: 10px;border-bottom-right-radius: 1px;
-        }
-
-
-    /* Hover Effects */
-    #my-breadcrumbs ul li a:hover::before {
-      border-color: #5172B8 #5172B8 #5172B8 transparent;
-    }
-    /* Hover Effects */
-    #my-breadcrumbs ul li a:hover::after {
-      border-top: 40px solid transparent;
-      border-bottom: 40px solid transparent;
-      border-left: 40px solid #5172B8;
-    }
-
-    .press {
-      display: block;
-      padding: 0;
-      margin: 0;
-      width: 100%;
-    }
-
-    .press li {
-      display: inline-block;
-      width: 20%;
-      text-align: center;
-    }
 
 </style>
 
     <body style="background-color: #F8F8FF">
-        <div class="header">
-            <div class="container-fluid" style="background-color: rgb(228,112,30)">
-                <h1>Genesis10</h1>
+    <nav class="navbar navbar-default">
+        <div class="container-fluid" style="background-color: rgb(228,112,30)">
+            <!-- Brand and toggle grouped for better mobile display -->
+            <div class="navbar-header">
+                <span class="navbar-brand">Genesis10</span>
+                <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#links-navbar-collapse" aria-controls="links-navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
             </div>
-        </div>
-
-
-    <div class="col-md-12">
-      <div id="my-breadcrumbs">
-       <ul class="press">
-         <li id="navigationOne" ><a id="prog1" href="#">Question 1</a></li>
-         <li id="navigationTwo"><a id="prog2" href="#">Question 2</a></li>
-         <li id="navigationThree"><a id="prog3" href="#">Question 3</a></li>
-         <li id="navigationFour"><a id="prog4" href="#">Question 4</a></li>
-
-       </ul>
-      </div>
-    </div>
-    <br>
-    <br>
+            <div class="collapse navbar-collapse" id="links-navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li id="navigationOne"><a id="prog1" href="#">Question 1</a></li>
+                    <li id="navigationTwo"><a id="prog2" href="#">Question 2</a></li>
+                    <li id="navigationThree"><a id="prog3" href="#">Question 3</a></li>
+                    <li id="navigationFour"><a id="prog4" href="#">Question 4</a></li>
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav>
     <br>
     <div class="form-group">
         <div class="col-md-8" id="question1">
@@ -195,10 +125,11 @@
             <button type="button" class="btn btn-primary btn-lg" id="answers">Submit Answers</button>
 
         </div>
-
-            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
-                  crossorigin="anonymous">
-            <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-            <script src="scripts/client.js"></script>
+    </div>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+          crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="scripts/client.js"></script>
     </body>
 </html>
