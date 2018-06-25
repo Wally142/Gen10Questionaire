@@ -50,13 +50,11 @@ $('#navigationFour').click(function () {
     questionView(4);
 })
 
-
-// $('.prog').css('color: white');
-// $('.prog').css('color: white');
-// $('.prog').css('color: white');
-
 $('#answers').click(function () {
 
+    let firstName = $('#firstName').val();
+    let lastName = $('#lastName').val();
+    let email = $('#email').val();
     let question1 = $('#questionOne').val()
     let question2 = $('#questionTwo').val()
     let question3 = $('#questionThree').val()
@@ -66,6 +64,9 @@ $('#answers').click(function () {
         type: 'POST',
         url: 'http://localhost:5000/questions',
         data: JSON.stringify({
+            firstname: firstName,
+            lastname: lastName,
+            email: email,
             question1: question1,
             question2: question2,
             question3: question3,
