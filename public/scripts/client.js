@@ -1,51 +1,53 @@
-hideQuestions()
 
 function hideQuestions() {
-    $('#question2').hide()
-    $('#question3').hide()
-    $('#question4').hide()
+    $('#question1').hide();
+    $('#question2').hide();
+    $('#question3').hide();
+    $('#question4').hide();
+}
+
+function questionView(number) {
+  var progressAmount = ((number*25)-25);
+  hideQuestions();
+  $('#question' + number).show();
+  $('#myBar').css('width', progressAmount + '%');
 }
 
 $('#question1NextButton').click(function(){
-    $('#question1').hide()
-    $('#question2').show()
-    $('#prog1').css("background-color", "rgb(228,112,30)");
-    console.log('question 1 answered')
+    questionView(2);
 })
 
 $('#question2NextButton').click(function () {
-    $('#question2').hide()
-    $('#question3').show()
-    $('#prog2').css("background-color", "rgb(228,112,30)");
-    console.log('question 2 answered')
+    questionView(3);
 })
 
 $('#question3NextButton').click(function () {
-    $('#question3').hide()
-    $('#question4').show()
-    $('#prog3').css("background-color", "rgb(228,112,30)");
-    console.log(' question 3 answered ')
+    questionView(4);
 })
 
 $('#question4PreviousButton').click(function () {
-    $('#question3').show()
-    $('#question4').hide()
-    $('#prog3').css("background-color", "rgb(64,96,165)");
-    console.log('Back to question 3')
+    questionView(3);
 })
 
 $('#question3PreviousButton').click(function () {
-    $('#question3').hide()
-    $('#question2').show()
-    $('#prog2').css("background-color", "rgb(64,96,165)");
-    console.log('Back to question 2')
+    questionView(2);
 })
 
 $('#question2PreviousButton').click(function () {
-    $('#question2').hide()
-    $('#question1').show()
-    $('#prog1').css("background-color", "rgb(64,96,165)");
-    console.log('back to question 1')
+    questionView(1);
+})
+
+$('#navigationOne').click(function () {
+    questionView(1);
+})
+$('#navigationTwo').click(function () {
+    questionView(2);
+})
+$('#navigationThree').click(function () {
+    questionView(3);
+})
+$('#navigationFour').click(function () {
+    questionView(4);
 })
 
 
