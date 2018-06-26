@@ -7,97 +7,64 @@
         <title>Document</title>
     </head>
     <style>
+
         input{
             font-size: 20px
         }
-        #question1{
+        #question1, #question2, #question3, #question4{
             font-size: large;
         }
-        #question2{
-            font-size: large;
-        }
-        #question3{
-            font-size: large;
-        }
-        #question4{
-            font-size: large;
-        }
-        #answers{
+
+        #startSurveyButton, #question1NextButton, #question2NextButton,
+        #question3NextButton, #question4NextButton, #answers{
             border: solid #4169E1 2px;
             color:black;
             background: #3CB371;
             font-weight: bold;
         }
-        #question1NextButton{
-            border: solid #4169E1 2px;
-            color:black;
-            background: #3CB371;
-            font-weight: bold;
-        }
-        #question2NextButton{
-            border: solid #4169E1 2px;
-            color:black;
-            background: #3CB371;
-            font-weight: bold;
-        }
-        #question3NextButton{
-            border: solid #4169E1 2px;
-            color:black;
-            background: #3CB371;
-            font-weight: bold;
-        }
-        #question4NextButton{
-            border: solid #4169E1 2px;
-            color:black;
-            background: #3CB371;
-            font-weight: bold;
-        }
-        #question2PreviousButton{
-            border: solid #4169E1 2px;
-            color:black;
-            background: #E9967A;
-            font-weight: bold;
-        }
-        #question3PreviousButton{
-            border: solid #4169E1 2px;
-            color:black;
-            background: #E9967A;
-            font-weight: bold;
-        }
-        #question4PreviousButton{
-            border: solid #4169E1 2px;
-            color:black;
-            background: #E9967A;
-            font-weight: bold;
-        }
-        textarea{
-            width: auto;
+
+        .form-group textarea {
+            border-style: solid;
+            border-color: black;
+            border-width: 2px;
         }
 
         #myProgress {
-          position: relative;
-          top: 40px;
-          width: 100%;
-          background-color: #ddd;
+            position: relative;
+            top: 40px;
+            width: 100%;
+            background-color: #ddd;
         }
 
         #myBar {
-          width: 0%;
-          height: 30px;
-          background-color: rgb(228,112,30);
-          border-style: solid;
-          border-width: 0px 10px 0px 0px;
+            width: 0%;
+            height: 30px;
+            background-color: rgb(228,112,30);
+            border-style: solid;
+            border-width: 0px 10px 0px 0px;
         }
 
-        .navbar navbar-default{
-          color: #000000;
+        nav.navbar-default {
+            background-color: rgb(228,112,30);
+        }
+
+        nav.navbar-default .navbar-nav>li>a {
+            color: #FFFFFF;
+        }
+
+        nav.navbar-default .navbar-brand {
+            color: #FFFFFF;
+        }
+
+        body {
+            background-color: #F8F8FF
         }
 
 </style>
 
-    <body style="background-color: #F8F8FF">
+    <body>
     <nav class="navbar navbar-default">
-        <div class="container-fluid" style="background-color: rgb(228,112,30)">
+        <div class="container-fluid">
             <!-- Brand and toggle grouped for better mobile display -->
             <div class="navbar-header">
                 <span class="navbar-brand">Genesis10</span>
@@ -109,7 +76,7 @@
             </div>
             <div class="collapse navbar-collapse" id="links-navbar-collapse">
                 <ul class="nav navbar-nav">
-                    <li id="navigationOne"><a id="prog1">Question 1</a></li>
+                    <li id="navigationOne"><a id="prog1" href="#">Question 1</a></li>
                     <li id="navigationTwo"><a id="prog2" href="#">Question 2</a></li>
                     <li id="navigationThree"><a id="prog3" href="#">Question 3</a></li>
                     <li id="navigationFour"><a id="prog4" href="#">Question 4</a></li>
@@ -118,38 +85,64 @@
         </div><!-- /.container-fluid -->
     </nav>
     <br>
-    <div class="form-group">
-        <div class="col-md-8" id="question1">
-            <label for="questionOne">What is your favorite animal?</label>
-            <textarea class="form-control" rows="3" id="questionOne"></textarea>
-
+    <div class="col-md-12">
+    <form role="form" method="POST">
+        <div class="col-md-8" id="contactInfo">
+            <h1>Contact Information</h1>
+            <div class="form-group row">
+                <label for="firstName" class="col-md-2 control-label">First Name</label>
+                <div class="col-md-8">
+                    <input type="text" class="form-control" id="firstName" pattern="/^[a-zA-Z\s]+$/" placeholder="John" title="First name must only contain letters." required>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="lastName" class="col-md-2 control-label">Last Name</label>
+                <div class="col-md-8">
+                    <input type="text" class="form-control" id="lastName" pattern="/^[a-zA-Z\s]+$/" placeholder="Smith" title="Last name must only contain letters." required>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="email" class="col-md-2 control-label">Email</label>
+                <div class="col-md-8">
+                    <input type="email" class="form-control" id="email" placeholder="example@gmail.com" required>
+                </div>
+            </div>
+            <button type="button" class="btn btn-primary btn-lg" id="startSurveyButton">Start Survey</button>
+        </div>
+        <div class="col-md-12" id="question1" style="display: none;">
+            <div class="form-group">
+                <label for="questionOne" class="control-label">What is your favorite animal?</label>
+                <textarea id="questionOne" class="form-control" rows="3"></textarea>
+            </div>
             <button type="button" class="btn btn-primary btn-lg" id="question1NextButton">Next Question</button>
         </div>
-        <div class="col-md-8" id="question2" style="display: none;">
-            <label for="questionOne"><font>What kind of horses do you like?</font></label>
-            <textarea class="form-control" rows="3" style="border: solid black 2px" id="questionTwo"></textarea>
-            <button type="button" class="btn btn-primary btn-lg" id="question2PreviousButton">Previous Question</button>
+        <div class="col-md-12" id="question2" style="display: none;">
+            <div class="form-group">
+                <label for="questionTwo" class="control-label"><font>What kind of horses do you like?</font></label>
+                <textarea class="form-control" rows="3" id="questionTwo"></textarea>
+            </div>
             <button type="button" class="btn btn-primary btn-lg" id="question2NextButton">Next Question</button>
         </div>
-        <div class="col-md-8" id="question3" style="display: none;">
-            <label for="questionOne">What kind of dogs do you know?</label>
-            <textarea class="form-control" rows="3" style="border: solid black 2px" id="questionThree"></textarea>
-            <button type="button" class="btn btn-primary btn-lg" id="question3PreviousButton">Previous Question</button>
+        <div class="col-md-12" id="question3" style="display: none;">
+            <div class="form-group">
+                <label for="questionThree" class="control-label">What kind of dogs do you know?</label>
+                <textarea class="form-control" rows="3" id="questionThree"></textarea>
+            </div>
             <button type="button" class="btn btn-primary btn-lg" id="question3NextButton">Next Question</button>
         </div>
-        <div class="col-md-8" id="question4" style="display: none;">
-            <label for="questionOne">How many cats will be on this page?</label>
-            <textarea class="form-control" rows="3" style="border: solid black 2px" id="questionFour"></textarea>
-            <button type="button" class="btn btn-primary btn-lg" id="question4PreviousButton">Previous Question</button>
+        <div class="col-md-12" id="question4" style="display: none;">
+            <div class="form-group">
+                <label for="questionFour" class="control-label">How many cats will be on this page?</label>
+                <textarea class="form-control" rows="3" id="questionFour"></textarea>
+            </div>
             <button type="button" class="btn btn-primary btn-lg" id="answers">Submit Answers</button>
-
         </div>
+    </form>
     </div>
-
-    <div class="col-md-8">
-      <div id="myProgress">
-        <div id="myBar" data-progress="0"></div>
-      </div>
+    <div class="col-md-12">
+        <div id="myProgress">
+            <div id="myBar" data-progress="0"></div>
+        </div>
     </div>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
           crossorigin="anonymous">
