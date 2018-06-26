@@ -1,3 +1,54 @@
+$('#startSurveyButton').click(function(){
+  var firstName = $('#firstName').val();
+  $('#firstName').val(firstName.trim());
+  var lastName = $('#lastName').val();
+  $('#lastName').val(lastName.trim());
+  var emailAddress = $('#email').val();
+
+  $('.errorMessages').empty();
+  var eMailCorrect = isEmail(emailAddress);
+  isCorrect(firstName, 'fn');
+  isCorrect(lastName, 'ln');
+  if (isCorrect(firstName) && isCorrect(lastName) && eMailCorrect) {
+    $('#hamburgerButton').show();
+    $('#navigationItems').show();
+    hideInfoForm();
+    questionView(1);
+  }
+
+});
+
+function isCorrect(name, type) {
+  var nameToTest = name.trim();
+  if(nameToTest === '' || nameToTest.length === 0 || nameToTest.length >= 100) {
+    if(type==='fn') {
+      $('#firstNameDiv').append('<div class="errorMessages"><p class="text-danger"'  +
+      '>Name must be between 1-100 letters.</p></div>');
+    }
+    if(type==='ln') {
+      $('#lastNameDiv').append('<div class="errorMessages"><p class="text-danger"' +
+      '>Name must be between 1-100 letters.</p></div>');
+    }
+  } else {
+    return true;
+  }
+}
+
+function isEmail(email) {
+  var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+  var legitEmail = regex.test(email);
+  if(legitEmail) {
+    return true;
+  } else {
+    $('#eMailDiv').append('<div class="errorMessages"><p class="text-danger"' +
+    '>This requires properly formatted e-mail!</p></div>');
+  }
+
+}
+
+function hideInfoForm() {
+  $('#contactInfo').hide();
+}
 
 function hideQuestions() {
     $('#question1').hide();
