@@ -6,10 +6,11 @@ $('#startSurveyButton').click(function(){
   var emailAddress = $('#email').val();
 
   $('.errorMessages').empty();
-  var eMailCorrect = isEmail(emailAddress);
-  isCorrect(firstName, 'fn');
-  isCorrect(lastName, 'ln');
-  if (isCorrect(firstName) && isCorrect(lastName) && eMailCorrect) {
+  var emailCorrect = isEmail(emailAddress);
+  firstNameCorrect = isCorrect(firstName, 'fn');
+  lastNameCorrect = isCorrect(lastName, 'ln');
+  
+  if (firstNameCorrect && lastNameCorrect && emailCorrect) {
     $('#hamburgerButton').show();
     $('#navigationItems').show();
     hideInfoForm();
@@ -40,7 +41,7 @@ function isEmail(email) {
   if(legitEmail) {
     return true;
   } else {
-    $('#eMailDiv').append('<div class="errorMessages"><p class="text-danger"' +
+    $('#emailDiv').append('<div class="errorMessages"><p class="text-danger"' +
     '>This requires properly formatted e-mail!</p></div>');
   }
 
