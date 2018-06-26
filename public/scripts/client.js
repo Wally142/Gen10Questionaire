@@ -7,11 +7,11 @@ $('#startSurveyButton').click(function(){
 
   $('.errorMessages').empty();
   var emailCorrect = isEmail(emailAddress);
-  firstNameCorrect = isCorrect(firstName, 'fn');
-  lastNameCorrect = isCorrect(lastName, 'ln');
-  
+  var firstNameCorrect = isCorrect(firstName, 'fn');
+  var lastNameCorrect = isCorrect(lastName, 'ln');
+
   if (firstNameCorrect && lastNameCorrect && emailCorrect) {
-    $('#hamburgerButton').show();
+    $('#navbarButton').show();
     $('#navigationItems').show();
     hideInfoForm();
     questionView(1);
