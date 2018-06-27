@@ -16,7 +16,6 @@ $('#startSurveyButton').click(function(){
     hideInfoForm();
     questionView(1);
   }
-
 });
 
 function isCorrect(name, type) {
@@ -56,10 +55,12 @@ function hideQuestions() {
     $('#question2').hide();
     $('#question3').hide();
     $('#question4').hide();
+    $('#question5').hide();
+    $('#question6').hide();
 }
 
 function questionView(number) {
-  var progressAmount = ((number*25)-25);
+  var progressAmount = ((number*20)-20);
   hideQuestions();
   $('#question' + number).show();
   $('#myBar').css('width', progressAmount + '%');
@@ -75,6 +76,13 @@ $('#question2NextButton').click(function () {
 
 $('#question3NextButton').click(function () {
     questionView(4);
+})
+$('#question4NextButton').click(function () {
+    questionView(5);
+})
+
+$('#question5NextButton').click(function () {
+    questionView(6);
 })
 
 $('#question4PreviousButton').click(function () {
@@ -101,6 +109,12 @@ $('#navigationThree').click(function () {
 $('#navigationFour').click(function () {
     questionView(4);
 })
+$('#navigationFive').click(function () {
+    questionView(5);
+})
+$('#navigationSix').click(function () {
+    questionView(6);
+})
 
 $('#answers').click(function () {
 
@@ -111,6 +125,8 @@ $('#answers').click(function () {
     let question2 = $('#questionTwo').val()
     let question3 = $('#questionThree').val()
     let question4 = $('#questionFour').val()
+    let question5 = $('#questionFive').val()
+    let question6 = $('#questionSix').val()
 
     $.ajax({
         type: 'POST',
@@ -122,7 +138,9 @@ $('#answers').click(function () {
             question1: question1,
             question2: question2,
             question3: question3,
-            question4: question4
+            question4: question4,
+            question5: question5,
+            question6: question6
         }),
         headers: {
             'Accept': 'application/json',
