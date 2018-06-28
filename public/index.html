@@ -1,80 +1,229 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Welcome to Genesis10</title>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+    </head>
     <style>
 
-        html, body {
-            background-image: url("img/Dev10ClientHeader.jpg");
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-position: center center;
-            height: 100%;
+        #radioHeading{
+            font-size: 30px;
+        }
+        #radioBody{
+            font-size: 20px;
+        }
+        #question1, #question2, #question3, #question4{
+            font-size: large
+        }
+
+        #startSurveyButton, #question1NextButton, #question2NextButton,
+        #question3NextButton, #question4NextButton,#question5NextButton, #answers{
+            color: white;
+            background: #1e92e4;
+            font-weight: bold;
+        }
+        .form-group textarea {
+            border-style: solid;
+            border-color: black;
+            border-width: 2px;
+        }
+        #myProgress {
+            position: relative;
+            top: 40px;
+            width: 100%;
+            background-color: #ddd;
+        }
+
+        #myBar {
+            width: 0%;
+            height: 30px;
+            background-color: rgb(228,112,30);
+            border-style: solid;
+            border-width: 0px 10px 0px 0px;
         }
 
         nav.navbar-default {
-            background: #E4701E;
-            border-radius: 0px;
-            border: 0px;
-            margin-bottom: 0px;
+            background-color: rgb(228,112,30);
         }
 
-        nav.navbar-default .navbar-nav>li>a,
+        nav.navbar-default .navbar-nav>li>a {
+            color: #FFFFFF;
+        }
+
         nav.navbar-default .navbar-brand {
             color: #FFFFFF;
         }
 
-        nav.navbar-default .navbar-brand:hover,
-        nav.navbar-default .navbar-brand:focus {
-            color: #FFFFFF;
-            background-color: transparent;
+        body {
+            background-color: #F8F8FF
         }
 
-        #welcomeBanner {
-            display: flex;
-            height: calc(100% - 50px);
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            color: #FFFFFF;
-        }
+</style>
 
-        a.btn {
-            font-size: 30px;
-            font-weight: bold;
-            background: #E4701E;
-            border-radius: 0px;
-            border: 0px;
-        }
-
-        a.btn:hover, a.btn:active, a.btn:focus,
-        a.btn:active:focus {
-            background: #F07B33;
-        }
-
-    </style>
-</head>
-<body>
+    <body>
     <nav class="navbar navbar-default">
         <div class="container-fluid">
+            <!-- Brand and toggle grouped for better mobile display -->
             <div class="navbar-header">
                 <span class="navbar-brand">Genesis10</span>
+                <div id="navbarButton" style="display: none;">
+                  <button class="navbar-toggle" type="button"
+                  data-toggle="collapse" data-target="#links-navbar-collapse"
+                  aria-controls="links-navbar-collapse" aria-expanded="false"
+                  aria-label="Toggle navigation">
+                      <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
+
+                  </button>
+                </div>
+            </div>
+            <div id="navigationItems" style="display: none;">
+            <div class="collapse navbar-collapse" id="links-navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li id="navigationOne"><a id="prog1" href="#">Question 1</a></li>
+                    <li id="navigationTwo"><a id="prog2" href="#">Question 2</a></li>
+                    <li id="navigationThree"><a id="prog3" href="#">Question 3</a></li>
+                    <li id="navigationFour"><a id="prog4" href="#">Question 4</a></li>
+                    <li id="navigationFive"><a id="prog5" href="#">Question 5</a></li>
+                    <li id="navigationSix"><a id="prog6" href="#">Question 6</a></li>
+                </ul>
+            </div><!-- /.navbar-collapse -->
+          </div>
+        </div><!-- /.container-fluid -->
+    </nav>
+    <br>
+    <div class="col-md-12">
+    <form role="form" method="POST">
+        <div class="col-md-8" id="contactInfo">
+            <h1>Contact Information</h1>
+            <div class="form-group row">
+                <label for="firstName" class="col-md-2 control-label">First Name</label>
+                <div class="col-md-8" id="firstNameDiv">
+                    <input type="text" class="form-control" id="firstName" pattern="/^[a-zA-Z\s]+$/" placeholder="John" title="First name must only contain letters." required>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="lastName" class="col-md-2 control-label">Last Name</label>
+                <div class="col-md-8" id="lastNameDiv">
+                    <input type="text" class="form-control" id="lastName" pattern="/^[a-zA-Z\s]+$/" placeholder="Smith" title="Last name must only contain letters." required>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="email" class="col-md-2 control-label">Email</label>
+                <div class="col-md-8" id="emailDiv">
+                    <input type="email" class="form-control" id="email" placeholder="example@gmail.com" required>
+                </div>
+            </div>
+            <button type="button" class="btn btn-primary btn-lg" id="startSurveyButton">Next Page</button>
+        </div>
+        <div class="col-md-12" id="question1" style="display: none;">
+            <div class="form-group" id="radioHeading">
+                <label for="question1" class="control-label">What is your favorite animal?</label><br>
+                <div id="radioBody">
+                <input type="radio" id="questionOneChoiceOne" name="questionOne" value="a">
+                <label for="questionOneChoiceOne"> Horse</label><br>
+                <input type="radio" id="questionOneChoiceTwo" name="questionOne" value="b" >
+                <label for="questionOneChoiceTwo"> Danger Noodles</label><br>
+                <input type="radio" id="questionOneChoiceThree" name="questionOne" value="c" >
+                <label for="questionOneChoiceThree"> Doggos</label><br>
+                <input type="radio" id="questionOneChoiceFour" name="questionOne" value="d" >
+                <label for="questionOneChoiceFour"> Rodeo Cat</label><br>
+                </div><hr/>
+            </div>
+            <button type="button" class="btn btn-primary btn-lg" id="question1NextButton">Next Question</button>
+        </div>
+        <div class="col-md-12" id="question2" style="display: none;">
+            <div class="form-group" id="radioHeading">
+                <label for="question2" class="control-label"><font>What kind of horses do you like?</font></label><br>
+                <div id="radioBody">
+                  <input type="radio" id="questionTwoChoiceOne" name="questionTwo" value="a">
+                  <label for="questionTwoChoiceOne"> Big</label><br>
+                  <input type="radio" id="questionTwoChoiceTwo" name="questionTwo" value="b" >
+                  <label for="questionTwoChoiceTwo"> Little</label><br>
+                  <input type="radio" id="questionTwoChoiceThree" name="questionTwo" value="c" >
+                  <label for="questionTwoChoiceThree"> Hairy</label><br>
+                  <input type="radio" id="questionTwoChoiceFour" name="questionTwo" value="d" >
+                  <label for="questionTwoChoiceFour"> Wild</label><br>
+                  </div><hr/>
+            </div>
+            <button type="button" class="btn btn-primary btn-lg" id="question2NextButton">Next Question</button>
+        </div>
+        <div class="col-md-12" id="question3" style="display: none;">
+            <div class="form-group" id="radioHeading">
+                <label for="question3" class="control-label">What kind of dogs do you know?</label><br>
+                <div id="radioBody">
+                  <input type="radio" id="questionThreeChoiceOne" name="questionThree" value="a">
+                  <label for="questionThreeChoiceOne"> Cat</label><br>
+                  <input type="radio" id="questionThreeChoiceTwo" name="questionThree" value="b" >
+                  <label for="questionThreeChoiceTwo"> Barf</label><br>
+                  <input type="radio" id="questionThreeChoiceThree" name="questionThree" value="c" >
+                  <label for="questionThreeChoiceThree"> Brian Griffin</label><br>
+                  <input type="radio" id="questionThreeChoiceFour" name="questionThree" value="d" >
+                  <label for="questionThreeChoiceFour"> Snoop</label><br>
+                  </div><hr/>
+            </div>
+            <button type="button" class="btn btn-primary btn-lg" id="question3NextButton">Next Question</button>
+        </div>
+        <div class="col-md-12" id="question4" style="display: none;">
+            <div class="form-group" id="radioHeading">
+                <label for="question4" class="control-label">How many cats will be on this page?</label><br>
+                <div id="radioBody">
+                  <input type="radio" id="questionFourChoiceOne" name="questionFour" value="a">
+                  <label for="questionFourChoiceOne"> 75</label><br>
+                  <input type="radio" id="questionFourChoiceTwo" name="questionFour" value="b" >
+                  <label for="questionFourChoiceTwo"> 3,000,002</label><br>
+                  <input type="radio" id="questionFourChoiceThree" name="questionFour" value="c" >
+                  <label for="questionFourChoiceThree"> -17</label><br>
+                  <input type="radio" id="questionFourChoiceFour" name="questionFour" value="d" >
+                  <label for="questionFourChoiceFour"> 5,428</label><br>
+                  </div><hr/>
+            </div>
+            <button type="button" class="btn btn-primary btn-lg" id="question4NextButton">Next Question</button>
+        </div>
+        <div class="col-md-12" id="question5" style="display: none;">
+            <div class="form-group" id="radioHeading">
+                <label for="questionFive" class="control-label">Which Position do you most commonly hire on a contract?</label><br>
+                <div id="radioBody">
+                <input type="radio" id="questionFiveChoiceOne" name="questionFive" value="Developer">
+                <label for="questionFiveChoiceOne"> Developer</label><br>
+                <input type="radio" id="questionFiveChoiceTwo" name="questionFive" value="BA">
+                <label for="questionFiveChoiceTwo"> BA</label><br>
+                <input type="radio" id="questionFiveChoiceThree" name="questionFive" value="BSA">
+                <label for="questionFiveChoiceThree"> BSA</label><br>
+                <input type="radio" id="questionFiveChoiceFour" name="questionFive" value="JPM/PC">
+                <label for="questionFiveChoiceFour"> JPM/PC</label><br>
+                <input type="radio" id="questionFiveChoiceFive" name="questionFive" value="Data Analyst">
+                <label for="questionFiveChoiceFive"> Data Analyst</label><br>
+              </div><hr/>
+                <button type="button" class="btn btn-primary btn-lg" id="question5NextButton">Next Question</button>
             </div>
         </div>
-    </nav>
-    <div id="welcomeBanner" class="container">
-        <div>
-            <h1>Welcome</h1>
-            <h2>Please complete this survey for a chance to win a prize!</h2>
-            </br>
-            <a href="survey.html" class="btn btn-primary">Begin Survey</a>
+        <div class="col-md-12" id="question6" style="display: none;">
+            <div class="form-group" id="radioHeading">
+                <label for="questionSix" class="control-label">Would you like to schedule time to meet with Natasha?</label><br>
+                <div id="radioBody">
+                <input type="radio" id="questionSixChoiceOne" name="questionSix" value="Yes">
+                <label for="questionSixChoiceOne"> Yes, I would like to set up a time</label><br>
+                <input type="radio" id="questionSixChoiceTwo" name="questionSix" value="No">
+                <label for="questionSixChoiceTwo"> No, I do not want to be contacted</label><br>
+              </div><hr/>
+            </div>
+            <button type="button" class="btn btn-primary btn-lg" id="answers">Submit Answers</button>
+        </div>
+    </form>
+    </div>
+    <div class="col-md-12">
+        <div id="myProgress">
+            <div id="myBar" data-progress="0"></div>
         </div>
     </div>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+          crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-</body>
+    <script src="scripts/client.js"></script>
+    </body>
 </html>
