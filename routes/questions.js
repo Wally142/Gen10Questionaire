@@ -11,8 +11,8 @@ router.post('/', function (req, res) {
             console.log(error);
             res.sendStatus(404);
         } else {
-            const queryString = 'INSERT INTO questionaire (firstname, lastname, email, question1, question2, question3, question4) VALUES ($1, $2, $3, $4, $5, $6, $7);';
-            let item = [answer.firstname, answer.lastname, answer.email, answer.question1, answer.question2, answer.question3, answer.question4];
+            const queryString = 'INSERT INTO questionaire (firstname, lastname, email, question1, question2, question3, question4, question5, question6) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9);';
+            let item = [answer.firstname, answer.lastname, answer.email, answer.question1, answer.question2, answer.question3, answer.question4, answer.question5, answer.question6];
             client.query(queryString, item, function (queryErr, resultObj) {
                 done();
                 if (queryErr) {
@@ -25,7 +25,6 @@ router.post('/', function (req, res) {
                             user: 'rodeo10.mailer@gmail.com',
                             pass: process.env.MAILERPASSWORD
                         }
-
                     })
                     let mailOptions = {
                         from: 'rodeo10.mailer@gmail.com',
