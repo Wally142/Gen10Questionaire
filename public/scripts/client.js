@@ -121,12 +121,12 @@ $('#answers').click(function () {
     let firstName = $('#firstName').val();
     let lastName = $('#lastName').val();
     let email = $('#email').val();
-    let question1 = $('#questionOne').val()
-    let question2 = $('#questionTwo').val()
-    let question3 = $('#questionThree').val()
-    let question4 = $('#questionFour').val()
-    let question5 = $('#questionFive').val()
-    let question6 = $('#questionSix').val()
+    let question1 = $('input[name=questionOne]:checked').val()
+    let question2 = $('input[name=questionTwo]:checked').val()
+    let question3 = $('input[name=questionThree]:checked').val()
+    let question4 = $('input[name=questionFour]:checked').val()
+    let question5 = $('input[name=questionFive]:checked').val()
+    let question6 = $('input[name=questionSix]:checked').val()
 
     $.ajax({
         type: 'POST',
