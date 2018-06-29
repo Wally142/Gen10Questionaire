@@ -24,10 +24,13 @@ function isCorrect(name, type) {
     if(type==='fn') {
       $('#firstNameDiv').append('<div class="errorMessages"><p class="text-danger"'  +
       '>Name must be between 1-100 letters.</p></div>');
+      $('#firstName').css({ "border": '#a94442 1px solid'});
+
     }
     if(type==='ln') {
       $('#lastNameDiv').append('<div class="errorMessages"><p class="text-danger"' +
       '>Name must be between 1-100 letters.</p></div>');
+      $('#lastName').css({ "border": '#a94442 1px solid'});
     }
   } else {
     return true;
@@ -42,6 +45,7 @@ function isEmail(email) {
   } else {
     $('#emailDiv').append('<div class="errorMessages"><p class="text-danger"' +
     '>This requires properly formatted e-mail!</p></div>');
+    $('#email').css({ "border": '#a94442 1px solid'});
   }
 
 }
@@ -60,6 +64,9 @@ function hideQuestions() {
 }
 
 function questionView(number) {
+  //if you add a question to this survey make sure to calculate
+  // ceiling of 100/(numberOfQuestions - 1) and change the following two 20s
+  // to that result
   var progressAmount = ((number*20)-20);
   hideQuestions();
   $('#question' + number).show();
@@ -68,53 +75,46 @@ function questionView(number) {
 
 $('#question1NextButton').click(function(){
     questionView(2);
-})
+});
 
 $('#question2NextButton').click(function () {
     questionView(3);
-})
+});
 
 $('#question3NextButton').click(function () {
     questionView(4);
 })
 $('#question4NextButton').click(function () {
     questionView(5);
-})
+});
 
 $('#question5NextButton').click(function () {
     questionView(6);
-})
-
-$('#question4PreviousButton').click(function () {
-    questionView(3);
-})
-
-$('#question3PreviousButton').click(function () {
-    questionView(2);
-})
-
-$('#question2PreviousButton').click(function () {
-    questionView(1);
-})
+});
 
 $('#navigationOne').click(function () {
     questionView(1);
-})
+});
+
 $('#navigationTwo').click(function () {
     questionView(2);
-})
+});
+
 $('#navigationThree').click(function () {
     questionView(3);
-})
+});
+
 $('#navigationFour').click(function () {
     questionView(4);
-})
+});
+
 $('#navigationFive').click(function () {
     questionView(5);
-})
+});
+
 $('#navigationSix').click(function () {
     questionView(6);
-})
+});
 
 $('#answers').click(function () {
 
