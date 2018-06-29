@@ -10,7 +10,7 @@ function onYouTubeIframeAPIReady() {
   player = new YT.Player('player', {
     height: '390',
     width: '640',
-    videoId: 'dQw4w9WgXcQ',
+    videoId: '5Dbvd4E-334',
     playerVars: {
                 autoplay: 1,
                 loop: 1,
@@ -37,6 +37,6 @@ function onPlayerReady(event) {
 var done = false;
 function onPlayerStateChange(event) {
   if(event.data === 0) {
-      document.location.href = 'welcome.html';
+      document.location.href = 'index.html';
   }
 }
